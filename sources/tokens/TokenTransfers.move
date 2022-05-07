@@ -1,5 +1,5 @@
 /// This module provides the foundation for transferring of Tokens
-module AptosFramework::TokenTransfers {
+module MyAddress::TokenTransfers {
     use Std::Signer;
     use AptosFramework::Table::{Self, Table};
     use AptosFramework::Token::{Self, Token, TokenId};

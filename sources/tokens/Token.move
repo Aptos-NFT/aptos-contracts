@@ -1,5 +1,5 @@
 /// This module provides the foundation for Tokens.
-module AptosFramework::Token {
+module MyAddress::Token {
     use Std::ASCII;
     use Std::Errors;
     use Std::Event::{Self, EventHandle};
