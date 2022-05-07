@@ -8,7 +8,7 @@ import requests
 from typing import Any, Dict
 import sys
 
-from first_transaction import Account, FaucetClient, RestClient, TESTNET_URL, FAUCET_URL
+from transaction import Account, FaucetClient, RestClient, TESTNET_URL, FAUCET_URL
 
 class TokenClient(RestClient):
     def submit_transaction_helper(self, account: Account, payload: Dict[str, Any]):
