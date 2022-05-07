@@ -23,7 +23,7 @@ class TokenClient(RestClient):
 
         payload = {
             "type": "script_function_payload",
-            "function": f"687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::create_unlimited_collection_script",
+            "function": f"0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::create_unlimited_collection_script",
             "type_arguments": [],
             "arguments": [
                 name.encode("utf-8").hex(),
@@ -46,7 +46,7 @@ class TokenClient(RestClient):
     ):
         payload = {
             "type": "script_function_payload",
-            "function": f"687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::create_unlimited_token_script",
+            "function": f"0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::create_unlimited_token_script",
             "type_arguments": [],
             "arguments": [
                 collection_name.encode("utf-8").hex(),
@@ -72,7 +72,7 @@ class TokenClient(RestClient):
     ):
         payload = {
             "type": "script_function_payload",
-            "function": f"687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::offer_script",
+            "function": f"0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::offer_script",
             "type_arguments": [],
             "arguments": [
                 receiver,
@@ -96,7 +96,7 @@ class TokenClient(RestClient):
     ):
         payload = {
             "type": "script_function_payload",
-            "function": f"687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::claim_script",
+            "function": f"0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::claim_script",
             "type_arguments": [],
             "arguments": [
                 sender,
@@ -119,7 +119,7 @@ class TokenClient(RestClient):
         return response.json()
 
     def get_token_balance(self, owner: str, creator: str, collection_name: str, token_name: str) -> Any:
-        token_store = self.account_resource(owner, "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenStore")["data"]["tokens"]["handle"]
+        token_store = self.account_resource(owner, "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenStore")["data"]["tokens"]["handle"]
 
         token_id = {
             "creator": creator,
@@ -129,13 +129,13 @@ class TokenClient(RestClient):
 
         return self.get_table_item(
             token_store,
-            "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenId",
-            "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Token",
+            "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenId",
+            "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Token",
             token_id,
         )["value"]
 
     def get_token_data(self, creator: str, collection_name: str, token_name: str) -> Any:
-        token_data = self.account_resource(creator, "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collections")["data"]["token_data"]["handle"]
+        token_data = self.account_resource(creator, "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collections")["data"]["token_data"]["handle"]
 
         token_id = {
             "creator": creator,
@@ -145,18 +145,18 @@ class TokenClient(RestClient):
 
         return self.get_table_item(
             token_data,
-            "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenId",
-            "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenData",
+            "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenId",
+            "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::TokenData",
             token_id,
         )
 
     def get_collection(self, creator: str, collection_name: str) -> Any:
-        token_data = self.account_resource(creator, "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collections")["data"]["collections"]["handle"]
+        token_data = self.account_resource(creator, "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collections")["data"]["collections"]["handle"]
 
         return self.get_table_item(
             token_data,
             "0x1::ASCII::String",
-            "687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collection",
+            "0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::Token::Collection",
             collection_name,
         )
 #<:!:section_3
@@ -171,7 +171,7 @@ class TokenClient(RestClient):
     ):
         payload = {
             "type": "script_function_payload",
-            "function": f"687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::cancel_offer_script",
+            "function": f"0x687b71cbb07fb980bb1da8a7b48dd73ca45ebf9c19ec9cf44c4791661e732d71::TokenTransfers::cancel_offer_script",
             "type_arguments": [],
             "arguments": [
                 receiver,
